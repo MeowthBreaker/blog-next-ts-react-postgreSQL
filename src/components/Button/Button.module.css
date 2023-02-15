@@ -1,0 +1,46 @@
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.button_size_s {
+    padding: 5px 0;
+    font-size: 18px;
+    width: 70px;
+}
+
+.button_size_m {
+    padding: 7px 0;
+    font-size: 20px;
+    width: 90px;
+}
+
+.button_size_l {
+    padding: 10px 0;
+    font-size: 22px;
+    width: 110px;
+}
+npm
+.button_size_xl {
+    padding: 14px 0;
+    font-size: 24px;
+    width: 130px;
+}
+
+.button_max-sized {
+    width: 100%;
+}
+
+.button_rounded {
+    border-radius: 50px;
+}
+
+.button_borderless {
+    border: none;
+}

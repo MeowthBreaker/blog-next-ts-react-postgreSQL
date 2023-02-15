@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 20px;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.link {
+    font-size: 20px;
+}
+
+.link:not(:last-child) {
+    margin-right: 15px;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search {
+    margin-right: 10px;
+}

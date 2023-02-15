@@ -1,0 +1,179 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    padding: 0 30px;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0;
+}
+
+.intro-icon {
+    width: 250px;
+}
+
+.intro-description {
+    font-size: 20px;
+}
+
+.story-board {
+    background-color: #1c1c1c;
+    width: 100%;
+    overflow: hidden;
+    z-index: -3;
+    padding: 150px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+
+.story-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    height: 300px;
+    z-index: -2;
+}
+
+.story-1-text {
+    padding-top: 20px;
+}
+
+.story-1-img {
+    height: 350px;
+    width: 550px;
+    padding-left: 5px;
+}
+
+.story-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: -1;
+    margin-bottom: 200px;
+}
+
+.story-2-img {
+    width: 600px;
+    height: 400px;
+    margin-bottom: 30px;
+}
+
+.story-3 {
+    width: 600px;
+}
+
+.story-3-text {
+    margin-bottom: 40px;
+}
+
+.carousel {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.carousel > * {
+    width: 350px;
+    height: 350px;
+}
+
+.carousel > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+.outro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 250px 0;
+}
+
+.outro-title {
+    font-weight: 400;
+    font-size: 42px;
+    margin-bottom: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outro-description {
+    font-weight: 400;
+    font-size: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c1c1c;
+}
+
+.footer > *:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.footer-title {
+    font-weight: 400;
+    font-size: 33px;
+    color: white;
+}
+
+.footer-description {
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-icons > * {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-icons > *:not(:last-child) {
+    margin-right: 10px;
+}
+
+.line {
+    z-index: -4;
+    background-color: #fff;
+    width: 10px;
+    position: absolute;
+}
+
+.line-top {
+    right: 120px;
+    top: 0;
+    height: 35%;
+}
+
+.line-bottom {
+    left: 120px;
+    bottom: 0;
+    height: 50%;
+}
