@@ -12,7 +12,7 @@ import maxPayne from '../../images/max-payne.png';
 
 interface AboutProps {}
 
-const About: FC<AboutProps> = () => {
+export const About: FC<AboutProps> = () => {
     return (
         <div className={cn(styles['about'])}>
             <div className={cn(styles['intro'])}>
@@ -102,5 +102,3 @@ const About: FC<AboutProps> = () => {
         </div>
     );
 };
-
-export default About;
