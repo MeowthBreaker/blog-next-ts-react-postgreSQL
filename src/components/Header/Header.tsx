@@ -4,24 +4,42 @@ import Image from 'next/image';
 import cn from 'classnames';
 import { Button } from '../Button/Button';
 import { Link } from '../Link/Link';
+import { useRouter } from 'next/router';
 
 interface HeaderProps {
     classNames?: string;
 }
 
 export const Header: FC<HeaderProps> = () => {
+    const { asPath } = useRouter();
+
     return (
         <div className={cn(styles['header'])}>
             <div className={cn(styles['left-side'])}>
                 <Image src='../images/icon.svg' alt='Icon' className={cn(styles['logo'])} />
                 <div className={cn(styles['links'])}>
-                    <Link href='/' className={cn(styles['link'])}>
+                    <Link
+                        href='/'
+                        className={cn(styles['link'], asPath === '/' && styles['link_selected'])}
+                    >
                         Home
                     </Link>
-                    <Link href='/tags' className={cn(styles['link'])}>
+                    <Link
+                        href='/tags'
+                        className={cn(
+                            styles['link'],
+                            asPath.includes('/tags') && styles['link_selected']
+                        )}
+                    >
                         Tags
                     </Link>
-                    <Link href='/about' className={cn(styles['link'])}>
+                    <Link
+                        href='/about'
+                        className={cn(
+                            styles['link'],
+                            asPath.includes('/about') && styles['link_selected']
+                        )}
+                    >
                         About
                     </Link>
                 </div>

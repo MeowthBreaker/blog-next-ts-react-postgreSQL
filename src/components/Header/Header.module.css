@@ -27,6 +27,11 @@
     font-size: 20px;
 }
 
+.link_selected {
+    font-weight: bolder;
+    cursor: default;
+}
+
 .link:not(:last-child) {
     margin-right: 15px;
 }
