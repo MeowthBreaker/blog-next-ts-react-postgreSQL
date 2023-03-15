@@ -5,12 +5,14 @@ import cn from 'classnames';
 import { Button } from '../Button/Button';
 import { Link } from '../Link/Link';
 import { useRouter } from 'next/router';
+import { User } from '@/pages';
 
 interface HeaderProps {
     classNames?: string;
+    user?: User;
 }
 
-export const Header: FC<HeaderProps> = () => {
+export const Header: FC<HeaderProps> = ({ user }) => {
     const { asPath } = useRouter();
 
     return (
@@ -46,9 +48,13 @@ export const Header: FC<HeaderProps> = () => {
             </div>
             <div className={cn(styles['right-side'])}>
                 <Image src='../images/search.svg' alt='Search' className={cn(styles['search'])} />
-                <Button size='l'>
-                    <Link href='/login'>Login</Link>
-                </Button>
+                {user ? (
+                    `Hello, ${user.name} ${user.surname}!`
+                ) : (
+                    <Button size='l'>
+                        <Link href='/login'>Login</Link>
+                    </Button>
+                )}
             </div>
         </div>
     );

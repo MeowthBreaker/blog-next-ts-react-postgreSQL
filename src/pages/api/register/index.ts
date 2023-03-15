@@ -23,6 +23,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Regist
         [req.body.login, req.body.email]
     )
         .then(async (e) => {
+            console.log(e.rows);
             if (e.rowCount === 0) {
                 await confirmRegistration(req.body);
 

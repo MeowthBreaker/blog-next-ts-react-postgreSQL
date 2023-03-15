@@ -3,11 +3,11 @@ import styles from './index.module.css';
 import cn from 'classnames';
 import { useFormik } from 'formik';
 import { Header } from '@/components/Header/Header';
-import { Button } from '@/components/Button/Button';
-import { redirect } from 'next/navigation';
 
 import { useGetLoginMutation } from '@/api/loginMutation';
 import Link from 'next/link';
+
+import { userFromRequest } from '@/web/tokens';
 
 interface LoginPageProps {
     className?: string;
@@ -16,7 +16,7 @@ interface LoginPageProps {
 const LoginPage: FC<LoginPageProps> = ({ className }) => {
     const [updateLogin, result] = useGetLoginMutation();
 
-    const [queryResult, setQueryResult] = useState<string | null>(null);
+    const [queryResult, setQueryResult] = useState<boolean | null>(null);
 
     const formik = useFormik({
         initialValues: {
@@ -25,13 +25,17 @@ const LoginPage: FC<LoginPageProps> = ({ className }) => {
             remember: false,
         },
         onSubmit: async (values) => {
-            if (!values.login.length || !values.password.length) return;
+            try {
+                if (!values.login.length || !values.password.length) return;
 
-            const meow = await updateLogin(values);
+                const meow = await updateLogin(values);
 
-            if ('error' in meow) {
-                setQueryResult('something went wrong');
-            } else redirect('/');
+                if ('error' in meow) {
+                    setQueryResult(false);
+                } else setQueryResult(true);
+            } catch (e) {
+                console.log(e);
+            }
         },
     });
     return (
@@ -51,7 +55,6 @@ const LoginPage: FC<LoginPageProps> = ({ className }) => {
                         value={formik.values.login}
                         placeholder='Login'
                     />
-
                     <input
                         id='password'
                         name='password'
@@ -60,8 +63,15 @@ const LoginPage: FC<LoginPageProps> = ({ className }) => {
                         value={formik.values.password}
                         placeholder='Password'
                     />
-
                     <input type='checkbox' />
+
+                    {queryResult === null ? null : queryResult === false ? (
+                        <p>Error!</p>
+                    ) : (
+                        <Link href={'/'} style={{ color: 'blue' }}>
+                            All done! Return to main page
+                        </Link>
+                    )}
 
                     <button type='submit'>Login</button>
                     <Link href='/register' style={{ color: 'blue' }}>
